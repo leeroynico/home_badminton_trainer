@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 type Props = {
 
 }
-export default function Select () : React.JSX.Element {
+export default function SliderComponent () : React.JSX.Element {
 
     const [value, setValue] = useState<number>(150);
     const handleChange = (event: Event, newValue: number | number[]) => {
@@ -19,7 +19,7 @@ export default function Select () : React.JSX.Element {
 
     return (
         <Stack sx={{mt:5}}>
-            <Typography variant="caption" display="block" gutterBottom>
+            <Typography variant="subtitle1" display="block" sx={{ml:4}}>
                 temps de travail (secondes)
             </Typography>
             <Stack
@@ -30,15 +30,15 @@ export default function Select () : React.JSX.Element {
                 sx={{mx:2}}
             >
                 <RemoveIcon onClick={()=>setValue(value-10)} fontSize="large" />
-                    <Slider
-                        min={20}
-                        max={300}
-                        valueLabelDisplay="auto"
-                        value={value}
-                        onChange={handleChange}
-                        sx={{height : 8}}
-                        color='secondary'
-                    />
+                <Slider
+                    min={20}
+                    max={300}
+                    valueLabelDisplay="auto"
+                    value={value}
+                    onChange={handleChange}
+                    sx={{height : 8}}
+                    color='secondary'
+                />
                 <AddIcon onClick={()=>setValue(value+10)} fontSize="large"/>
             </Stack>
         </Stack>
